@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createContact, deleteContact, fetchContacts } from '../../redux/api';
+import { deleteContact, fetchContacts } from '../../redux/api';
 import { setFilter, useGetContacts, useGetFilter } from '../../redux/phonebookSlice';
 import Contacts from '../Contacns';
 import Filter from '../Filter';

@@ -13,11 +13,6 @@ const initialState = {
   IsCurrentUser: false,
 }
 
-const error = (state, action) => {
-  state.status = 'rejected';
-  state.error = action.payload;
-};
-
 export const authSlice = createSlice({
   name: 'auth',
   initialState,

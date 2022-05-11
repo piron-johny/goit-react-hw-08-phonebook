@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { fetchUser } from 'redux/api';
-import { useGetIsAuth, useGetIsCurrentUser } from 'redux/authSlice';
+import { useGetIsCurrentUser } from 'redux/authSlice';
 import LiginForm from './LiginForm/LiginForm';
 import MenuAppBar from './NavBar';
 import Phonebook from './Phonebook';
@@ -12,7 +12,6 @@ import RegisterForm from './RegisterForm';
 
 const App = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector(useGetIsAuth);
   const current = useSelector(useGetIsCurrentUser);
 
   useEffect(() => {

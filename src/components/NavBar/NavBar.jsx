@@ -15,7 +15,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logouthUser } from 'redux/api';
-import { useGetIsAuth, useGetIsCurrentUser, useGetUser } from 'redux/authSlice';
+import { useGetIsAuth, useGetUser } from 'redux/authSlice';
 
 const pages = ['Phone list'];
 const settings = ['Logout'];
@@ -27,7 +27,6 @@ const ResponsiveAppBar = () => {
   const dispatsh = useDispatch();
   const isAuth = useSelector(useGetIsAuth);
   const user = useSelector(useGetUser);
-  const isCurrentUser = useSelector(useGetIsCurrentUser);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
