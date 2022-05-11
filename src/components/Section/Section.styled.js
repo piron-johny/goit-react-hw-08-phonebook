@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
 
 export const StyledSection = styled.section`
-  & h2 {
-    text-align: center;
-  }
+  margin: 10px 0;
 `;
 
 export const Container = styled.div`

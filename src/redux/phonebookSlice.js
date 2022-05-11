@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createContact, deleteContact, fetchContacts } from './api';
+import { createContact, createUser, deleteContact, fetchContacts, loginUser } from './api';
 
 const initialState = {
   contacts: {
     items: [],
     filter: '',
   },
+  isAuth: false,
   status: null,
   error: null,
 }
@@ -35,6 +36,21 @@ export const phonebookSlice = createSlice({
     [fetchContacts.rejected]: error,
     [createContact.rejected]: error,
     [deleteContact.rejected]: error,
+    [createUser.fulfilled]: (state, action) => {
+      const { user, token } = action.payload
+      state.status = 'fulfilled';
+      state.user = { ...user };
+      state.token = token;
+      state.error = null;
+    },
+    [loginUser.fulfilled]: (state, action) => {
+      const { user, token } = action.payload
+      state.status = 'fulfilled';
+      state.user = { ...user };
+      state.token = token;
+      state.error = null;
+      state.isAuth = true;
+    },
   }
 })
 
@@ -44,5 +60,7 @@ export const useGetContacts = store => store.phonebook.contacts.items;
 export const useGetFilter = store => store.phonebook.contacts.filter;
 export const useGetStatus = store => store.phonebook.status;
 export const useGetError = store => store.phonebook.error;
+export const useGetIsAuth = store => store.phonebook.isAuth;
+export const useGetUser = store => store.phonebook.user;
 
 export default phonebookSlice.reducer

@@ -12,10 +12,10 @@ const Contacts = ({ contacts, onDelete }) => {
       {status === 'pending' && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {status === 'fulfilled' && !error && <ul>
-        {contacts?.map(({ name, phone, id }) => (
+        {contacts?.map(({ name, number, id }) => (
           <li key={id} id={id}>
             <span>
-              <b>{name}</b> : {phone}
+              <b>{name}</b> : {number}
             </span>
             <button type="button" onClick={onDelete}>
               Delete

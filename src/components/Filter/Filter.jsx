@@ -1,12 +1,16 @@
-import { StyledFilter } from './Filter.styled';
+import { TextField } from '@mui/material';
 import PropeTypes from 'prop-types';
 
 const Filter = ({ filterChange, value }) => {
   return (
-    <StyledFilter>
-      Find contacts by name
-      <input type="text" onChange={filterChange} value={value} />
-    </StyledFilter>
+      <TextField
+        label="Find by name"
+        variant="outlined"
+        value={value}
+        onChange={filterChange}
+        fullWidth
+        sx={{mb: 2}}
+      />
   );
 };
 
